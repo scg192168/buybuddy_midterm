@@ -83,6 +83,9 @@ const addUser = function(user) {
     });
 };
 
+// checking3
+
+
 module.exports = {
   getUsers,
   addUser,
