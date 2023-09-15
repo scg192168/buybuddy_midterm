@@ -20,7 +20,22 @@
 <body>
   <h1>Users</h1>
   <button id="fetch-users">Fetch Users via AJAX</button>
-  <ul id="users"></ul>
+  <ul id="users">
+    <section>
+      <table class="table">
+        <thead>
+          <tr>List of Users</tr>
+        </thead>
+        <tbody>
+          <% for (let user in users) { %>
+            <tr>
+              <td> <a href="/"><%= users[user].username %></a></td>
+            </tr>
+          <% } %>
+        </tbody>
+      </table>
+    </section>
+  </ul>
 </body>
 
 </html>

@@ -6,112 +6,152 @@ const express = require('express');
 const router  = express.Router();
 const bcrypt = require("bcrypt");
 const userQueries = require('../db/queries/users');
+const userSearchHelper = require('../userSearchHelper'); // Import the getUserWithEmail function
 
 
-// ------------------------------------------------------------------------------------------------ GET Routes
+// GET Routes ------------------------------------------------------------------------------------------------ GET Routes
 
 // Return information about the current user (based on cookie value)
-router.get("/:id", (req, res) => {
-  const userId = req.session.userId;
-  if (!userId) {
-    return res.send({ message: "not logged in" });
+router.get("/urls/buyer", (req, res) => {
+  const idFromCookie = req.session.userId;
+
+  if (!idFromCookie) { // return a relevant error message if id does not exist
+    return res.status(403).send("😒😒😒😒You are not Logged in!!! Log in to use the TinyApp....");
   }
 
-  database
-    .getUserWithId(userId)
+  userQueries
+    .getUserWithId(idFromCookie)
     .then((user) => {
-      if (!user) {
-        return res.send({ error: "no user with that id" });
-      }
 
-      res.send({
-        user: {
-          name: user.name,
-          email: user.email,
-          id: userId,
-        },
-      });
+      const returnedUser = {
+        usernname: user.username,
+        email: user.email,
+        role: user.role,
+        id: user.id,
+      };
+      console.log(returnedUser);
+      // res.redirect('/');
+      res.render("urls_buyer_index", returnedUser);
     })
-    .catch((e) => res.send(e));
+    .catch((e) => res.status(500).send("No user with that id" ));
 });
 
-// ------------------------------------------------------------------------------------------------ POST Routes
+// Return the login page
+router.get("/login", (req, res) => {
+  res.render("login");
+});
 
-// Register a new user
-router.post("/new", (req, res) => {
+// Return the signup page
+router.get("/signup", (req, res) => {
+  res.render("signup");
+});
+
+
+// POST Routes ------------------------------------------------------------------------------------------------ POST Routes
+
+// Register a new buyer user
+router.post("/signup/buyer", (req, res) => {
   const user = req.body;
-  user.password = bcrypt.hashSync(user.password, 12);
-  database
-    .addUser(user)
-    .then((user) => {
-      if (!user) {
-        return res.send({ error: "error" });
+  const emailInput = user.email;
+  const passwordInput = user.password;
+  user.password = bcrypt.hashSync(passwordInput, 12);
+
+  if (!emailInput || !passwordInput) { // if email or password is empty, request for them
+    return res.status(400).send("Please enter an email and password");
+  }
+
+  // Check if the user with the same email already exists
+  userSearchHelper.getUserWithEmail(emailInput)
+    .then((userFound) => {
+      if (userFound) {
+        return res.status(400).send("User already exists");
       }
 
-      req.session.userId = user.id;
-      res.send({
-        user: {
-          name: user.username,
-          email: user.email,
-          id: user.id,
-        },
-      });
+      userQueries
+      .addUser(user)
+      .then((user) => {        
+        req.session.userId = user.id;
+        res.redirect('/urls/buyer');
+      })
+      .catch((e) => res.status(500).send("Error creating user"));
     })
-    .catch((e) => res.send(e));
+    .catch((e) => res.status(500).send("Error checking user existence"));
+});
+
+// Register a new seller user
+router.post("/signup/seller", (req, res) => {
+  const user = req.body;
+  const emailInput = user.email;
+  const passwordInput = user.password;
+  user.password = bcrypt.hashSync(passwordInput, 12);
+
+  if (!emailInput || !passwordInput) { // if email or password is empty, request for them
+    return res.status(400).send("Please enter an email and password");
+  }
+
+  // Check if the user with the same email already exists
+  userSearchHelper.getUserWithEmail(emailInput)
+    .then((userFound) => {
+      if (userFound) {
+        return res.status(400).send("User already exists");
+      }
+
+      userQueries
+      .addUser(user)
+      .then((user) => {        
+        req.session.userId = user.id;
+        res.redirect('/urls/seller');
+      })
+      .catch((e) => res.status(500).send("Error creating user"));
+    })
+    .catch((e) => res.status(500).send("Error checking user existence"));
 });
 
 // Login a user as a buyer
 router.post("/login/buyer", (req, res) => {
-  const email = req.body.email;
-  const password = req.body.password;
+  const emailInput = req.body.email;  
+  const passwordInput = req.body.password;
 
-  userQueries.getUserWithEmail(email)
-    .then((user) => {
-      if (!user) {
-        return res.send({ error: "no user with the email or password exist" });
+  userQueries
+    .getUserWithEmail(emailInput)
+    .then((userFound) => {     
+      const hashedPassword = userFound.password; // Hash user password
+      
+      if (!userFound) {
+        return res.status(403).send("😒😒😒😒User account does not exist. Please register a new user account");
       }
-      if (!bcrypt.compareSync(password, user.password)) {
-        return res.send({ error: "error" });
+    
+      if (userFound && !bcrypt.compareSync(passwordInput, hashedPassword)) {
+        return res.status(403).send("😒😒😒😒Email or Password is incorrect!.... Please enter a valid email and password");
       }
 
-      req.session.userId = user.id;
-      res.send({
-        user: {
-          name: user.username,
-          email: user.email,
-          id: user.id,
-        },
-      });
-  });  
+      req.session.userId = userFound.id;
+      res.redirect('/users/urls/buyer');
+    });
 });
 
 // Login in a user as a seller
 router.post("/login/seller", (req, res) => {
-  const email = req.body.email;
-  const password = req.body.password;
+  const emailInput = req.body.email;
+  const passwordInput = req.body.password;
 
-  userQueries.getUserWithEmail(email)
-    .then((user) => {
-      if (!user) {
+  userQueries.getUserWithEmail(emailInput)
+    .then((userFound) => {
+      const hashedPassword = userFound.password; // Hash user password
+      if (!userFound) {
         return res.send({ error: "no user with the email or password exist" });
       }
 
-      if (user.role !== 'seller') {
+      if (userFound.role !== 'seller') {
         return res.send({ error: "Either the user you are trying to login with is not a valid seller or user does not exist" });
       }
 
-      if (!bcrypt.compareSync(password, user.password)) {
+      if (userFound && !bcrypt.compareSync(passwordInput, hashedPassword)) {
         return res.send({ error: "error" });
       }
 
-      req.session.userId = user.id;
-      res.send({
-        user: {
-          name: user.username,
-          email: user.email,
-          id: user.id,
-        },
-      });
+      req.session.userId = userFound.id;
+      res.redirect('/urls/seller');
   });  
 });
 
@@ -121,6 +161,5 @@ router.post("/logout", (req, res) => {
   res.send({});
 });
 
-checking1
 
 module.exports = router;

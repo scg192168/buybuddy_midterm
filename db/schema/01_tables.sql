@@ -7,11 +7,12 @@ CREATE TABLE users (
     email VARCHAR(255) NOT NULL,
     password VARCHAR(255) NOT NULL,
     role VARCHAR(50) NOT NULL,
-    wishlist JSONB,
-    messages JSONB,
-    profile JSONB
+    wishlist JSONB DEFAULT NULL,
+    messages JSONB DEFAULT NULL,
+    profile JSONB DEFAULT NULL
 );
 
+DROP TABLE IF EXISTS products CASCADE;
 CREATE TABLE products (
     id serial PRIMARY KEY,
     sellerId INT NOT NULL,
@@ -19,16 +20,17 @@ CREATE TABLE products (
     description TEXT,
     price NUMERIC(10, 2),
     category VARCHAR(255),
-    images JSONB,
+    images JSONB DEFAULT NULL,
     status VARCHAR(50) NOT NULL,
     FOREIGN KEY (sellerId) REFERENCES users(id)
 );
 
+DROP TABLE IF EXISTS messages CASCADE;
 CREATE TABLE messages (
     id serial PRIMARY KEY,
     senderId INT NOT NULL,
     receiverId INT NOT NULL,
-    messageText TEXT,
+    messageText TEXT DEFAULT NULL,
     sendDate TIMESTAMPTZ,
     FOREIGN KEY (senderId) REFERENCES users(id),
     FOREIGN KEY (receiverId) REFERENCES users(id)

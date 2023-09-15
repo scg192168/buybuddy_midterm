@@ -1,9 +1,9 @@
 -- Users table seeds here (Example)
 -- Insert sample data
-INSERT INTO users (username, email, password, role, wishlist, messages, profile)
+INSERT INTO users (username, email, password, role)
 VALUES
-    ('user123', 'user123@example.com', 'hashed_password', 'buyer', '[]', '[]', '{"name": "John Doe"}'),
-    ('seller456', 'seller456@example.com', 'hashed_password', 'seller', '[]', '[]', '{"name": "Alice Smith"}');
+    ('user123', 'user123@example.com', 'hashed_password', 'buyer'),
+    ('seller456', 'seller456@example.com', 'hashed_password', 'seller');
 
 INSERT INTO products (sellerId, title, description, price, category, images, status)
 VALUES

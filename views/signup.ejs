@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>BuyBuddy</title>
+    <link rel="stylesheet" href="/styles/reset.css" />
+    <link rel="stylesheet" href="/styles/_header.css" />
+    <link rel="stylesheet" href="/styles/signup.css" />
+    <link rel="stylesheet" href="/styles/main.css" />
+  </head>
+  <body>
+    <%- include('partials/_header') %>
+    <div class="signup-container">
+      <h1>Create Account</h1>
+      <form action="/users/signup/buyer" method="POST" class="form-signup">
+        <label for="email">Username</label>
+        <input class="form-control" type="text" name="username" require maxlength="20"  placeholder="Username" required />
+        <label for="email">Email</label>
+        <input class="form-control" type="email" name="email" placeholder="Email Address" required />
+        <label for="password">Password </label>
+        <input class="form-control" type="password" name="password" placeholder="password" required />
+
+        <div class="radio-btns">
+          <div>
+            <input type="radio" id="buyer" name="role" value="buyer" checked />
+            <label for="buyer">Buyer</label>
+          </div>
+
+          <div>
+            <input type="radio" id="seller" name="type" value="seller" />
+            <label for="seller">Seller</label>
+          </div>
+        </div>
+
+        <button type="submit" class="signup-btn btn btn-large">Sign Up</button>
+      </form>
+    </div>
+  </body>
+</html>

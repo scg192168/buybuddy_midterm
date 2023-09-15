@@ -10,7 +10,7 @@ const getUsers = () => {
   return db.query('SELECT * FROM users;')
     .then(result => {
       let resolvedUsers = null;
-      const users = result.rows[0];
+      const users = result.rows;
       if (users) {
         resolvedUsers = users;
       }
@@ -71,8 +71,8 @@ const getUserWithId = function(id) {
  */
 const addUser = function(user) {
   return db
-    .query(`INSERT INTO users (name, email, password, role, wishlist, messages, profile) 
-    VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING *;`, [user.username, user.email, user.password, user.role, user.wishlist.user.messages, user.profile])
+    .query(`INSERT INTO users (username, email, password, role) 
+    VALUES ($1, $2, $3, $4) RETURNING *;`, [user.username, user.email, user.password, user.role])
     .then((result) => {
       const newUserAdded = result.rows[0];
       return Promise.resolve(newUserAdded);
