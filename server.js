@@ -19,8 +19,7 @@ app.set('view engine', 'ejs');
 app.use(morgan('dev'));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static('public'));
-app.use(
-  '/styles',
+app.use('/styles',
   sassMiddleware({
     source: __dirname + '/styles',
     destination: __dirname + '/public/styles',
@@ -34,27 +33,43 @@ app.use(
   })
 );
 
-// Separated Routes for each Resource
-// Note: Feel free to replace the example routes below with your own
-const userApiRoutes = require('./routes/userRoutes');
-const widgetApiRoutes = require('./routes/widgets-api');
-const usersRoutes = require('./routes/users');
+// // Separated Routes for each Resource
+// // Note: Feel free to replace the example routes below with your own
+// const userApiRoutes = require('./routes/userRoutes');
+// const widgetApiRoutes = require('./routes/widgets-api');
+// const usersRoutes = require('./routes/users');
 
-// Mount all resource routes
-// Note: Feel free to replace the example routes below with your own
-// Note: Endpoints that return data (eg. JSON) usually start with `/api`
-app.use('/api/users', userApiRoutes);
-app.use('/api/widgets', widgetApiRoutes);
-app.use('/users', usersRoutes);
-// Note: mount other resources here, using the same pattern above
+// // Mount all resource routes
+// // Note: Feel free to replace the example routes below with your own
+// // Note: Endpoints that return data (eg. JSON) usually start with `/api`
+// app.use('/api/users', userApiRoutes);
+// app.use('/api/widgets', widgetApiRoutes);
+// app.use('/users', usersRoutes);
+// // Note: mount other resources here, using the same pattern above
 
 // Home page
 // Warning: avoid creating more routes in this file!
 // Separate them into separate routes files (see above).
 
+// const buyerRoutes = require("./routes/buyerRoutes");
+// const sellerRoutes = require("./routes/sellerRoutes");
+// const messagesRoutes = require("./routes/messagesRoutes");
+const productRoutes = require("./routes/productRoutes");
+const userRoutes = require("./routes/userRoutes");
+
+// Route to render the homepage
 app.get('/', (req, res) => {
   res.render('index');
 });
+
+// /products/endpoints
+app.use("/products", productRoutes);
+
+// /user/endpoints
+app.use("/users", userRoutes);
+
+// /api/endpoints
+// app.use("/api", apiRoutes);
 
 app.listen(PORT, () => {
   console.log(`Example app listening on port ${PORT}`);
