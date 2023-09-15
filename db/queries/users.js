@@ -71,7 +71,7 @@ const getUserWithId = function(id) {
  */
 const addUser = function(user) {
   return db
-    .query(`INSERT INTO users (name, email, password) 
+    .query(`INSERT INTO users (name, email, password, role, wishlist, messages, profile) 
     VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING *;`, [user.username, user.email, user.password, user.role, user.wishlist.user.messages, user.profile])
     .then((result) => {
       const newUserAdded = result.rows[0];
