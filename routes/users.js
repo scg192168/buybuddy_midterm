@@ -5,11 +5,26 @@
  * See: https://expressjs.com/en/guide/using-middleware.html#middleware.router
  */
 
-const express = require('express');
-const router  = express.Router();
+// const express = require('express');
+// const router  = express.Router();
 
-router.get('/', (req, res) => {
-  res.render('users');
-}); 
+// router.get('/', (req, res) => {
+//   res.render('users');
+// });
+
+// module.exports = router;
+
+const express = require('express');
+const router = express.Router();
+
+// Route to render the registration form
+router.get('/register', (req, res) => {
+  res.render('registration'); // Render your registration form (registration.ejs)
+});
+
+// Route to render the login form
+router.get('/login', (req, res) => {
+  res.render('login'); // Render your login form (login.ejs)
+});
 
 module.exports = router;
