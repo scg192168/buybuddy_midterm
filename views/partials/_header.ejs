@@ -1,0 +1,48 @@
+<header>
+  <nav class="nav">
+    <div class="nav__top">
+      <ul class="nav__top--left">
+        <li>Login</li>
+        <li>Sign Up</li>
+        <li>Wishlist</li>
+      </ul>
+    </div>
+    <div class="nav__container">
+      <div class="nav-logo">
+        <img src="images/buybuddy-logo.png" alt="" />
+      </div>
+      <div class="nav__search">
+        <ul>
+          <form id="item-search" class="nav-search" action="">
+            <input
+              type="text"
+              name="text"
+              class="search-input"
+              id="search-input"
+              require
+              maxlength="20"
+            />
+            <button class="search-btn" type="submit">Search</button>
+          </form>
+        </ul>
+        <ul class="nav__filter">
+          <li>
+            <select id="sort-category" name="category">
+              <option value="category">Category</option>
+              <option value="bikes">Electronics</option>
+              <option value="computers">Games</option>
+              <option value="games">Shoes</option>
+            </select>
+          </li>
+          <li>
+            <select id="sort-price" name="price">
+              <option value="price">Sort by price</option>
+              <option value="ASC">Price ⬆</option>
+              <option value="DESC">Price ⬇</option>
+            </select>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>
