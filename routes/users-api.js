@@ -9,7 +9,18 @@ const express = require('express');
 const router  = express.Router();
 const userQueries = require('../db/queries/users');
 
-router.get('/', (req, res) => {
+// Authentication Middleware
+const isAuthenticated = (req, res, next) => {
+  // Check if the user is authenticated, e.g., using Passport.js
+  if (req.isAuthenticated()) {
+    // If authenticated, proceed to the route handler
+    return next();
+  }
+  // If not authenticated, send an unauthorized response
+  res.status(401).json({ error: 'Unauthorized' });
+};
+
+router.get('/', isAuthenticated, (req, res) => {
   userQueries.getUsers()
     .then(users => {
       res.json({ users });
