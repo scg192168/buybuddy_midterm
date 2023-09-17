@@ -2,14 +2,14 @@
   <nav class="nav">
     <div class="nav__top">
       <ul class="nav__top--left">
-        <li>Login</li>
-        <li>Sign Up</li>
-        <li>Wishlist</li>
+        <li><a href="/users/login">Login</a></li>
+        <li><a href="/users/signup">Sign Up</a></li>
+        <li><a href="/users/wishlist">Wishlist</a></li>
       </ul>
     </div>
     <div class="nav__container">
       <div class="nav-logo">
-        <img src="images/buybuddy-logo.png" alt="" />
+        <a href="/"><img src="/images/buybuddy-logo.png" alt="" /></a>
       </div>
       <div class="nav__search">
         <ul>
@@ -21,8 +21,9 @@
               id="search-input"
               require
               maxlength="20"
+              placeholder="Search"
             />
-            <button class="search-btn" type="submit">Search</button>
+            <button class="search-btn btn" type="submit">Search</button>
           </form>
         </ul>
         <ul class="nav__filter">
@@ -37,8 +38,8 @@
           <li>
             <select id="sort-price" name="price">
               <option value="price">Sort by price</option>
-              <option value="ASC">Price ⬆</option>
-              <option value="DESC">Price ⬇</option>
+              <option value="asc">Price ⬆</option>
+              <option value="desc">Price ⬇</option>
             </select>
           </li>
         </ul>
