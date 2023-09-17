@@ -82,7 +82,7 @@ router.post("/login/buyer", (req, res) => {
           id: user.id,
         },
       });
-  });  
+  });
 });
 
 // Login in a user as a seller
@@ -112,7 +112,7 @@ router.post("/login/seller", (req, res) => {
           id: user.id,
         },
       });
-  });  
+  });
 });
 
 // Log a user out

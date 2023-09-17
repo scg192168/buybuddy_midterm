@@ -9,6 +9,7 @@ const messagesQueries = require('../db/queries/messages');
 
 // ------------------------------------------------------------------------------------------------ GET Routes
 
+
 // Count all the unread messages for a buyer
 
 // Count all the unread messages for a seller
