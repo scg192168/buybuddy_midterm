@@ -68,7 +68,7 @@ const getUserWithId = function (id) {
  * @param {{name: string, password: string, email: string}} user
  * @return {Promise<{}>} A promise to the user.
  */
-const addUser = function (user) {
+addUser = function (user) {
   const userId = Object.keys(users).length + 1;
   user.id = userId;
   users[userId] = user;
@@ -170,7 +170,7 @@ const addProperty = function (property) {
  * @param {String} email The email of the user.
  * @return {Promise<{}>} A promise to the user.
  */
-const getUserWithEmail = function(email) {
+ getUserWithEmail = function(email) {
   return db
     .query(`SELECT * FROM users WHERE email like $1`, [email])
     .then((result) => {
@@ -192,7 +192,7 @@ const getUserWithEmail = function(email) {
  * @param {string} id The id of the user.
  * @return {Promise<{}>} A promise to the user.
  */
-const getUserWithId = function(id) {
+ getUserWithId = function(id) {
   return db
     .query(`SELECT * FROM users WHERE id = $1`, [id])
     .then((result) => {
@@ -218,7 +218,7 @@ const getUserWithId = function(id) {
  */
 const addUser = function(user) {
   return db
-    .query(`INSERT INTO users (name, email, password) 
+    .query(`INSERT INTO users (name, email, password)
     VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING *;`, [user.username, user.email, user.password, user.role, user.wishlist.user.messages, user.profile])
     .then((result) => {
       const newUserAdded = result.rows[0];
