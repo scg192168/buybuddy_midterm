@@ -1,0 +1,35 @@
+/* CSS for displaying three products in a grid */
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* Three columns with equal width */
+  gap: 20px; /* Adjust the gap between products */
+}
+
+.product {
+  border: 1px solid #e9e9e9;
+  padding: 10px;
+  text-align: center;
+}
+
+.product img {
+  max-width: 100%;
+  height: auto;
+}
+
+.product-title {
+  font-weight: bold;
+  margin: 5px 0;
+}
+
+.product-description {
+  font-size: 14px;
+  margin: 5px 0;
+}
+
+.product-price {
+  color: #FF2768; /* Adjust the color as needed */
+  font-weight: bold;
+  margin: 5px 0;
+}
+
+
