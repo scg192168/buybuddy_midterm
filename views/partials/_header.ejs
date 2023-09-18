@@ -1,11 +1,20 @@
 <header>
   <nav class="nav">
     <div class="nav__top">
+      <% if (!id) {%>
       <ul class="nav__top--left">
         <li><a href="/users/login">Login</a></li>
         <li><a href="/users/signup">Sign Up</a></li>
         <li><a href="/users/wishlist">Wishlist</a></li>
-      </ul>
+        <% } else {%>
+          <div class="nav__top---left">
+            <form class="form-logout text-center" method="POST" action ="/users/logout">
+              <span class="form-inline" style="margin: 10px"> Logged In As: <strong><%= email %></strong> </span>
+              <button type="submit" class="logout-btn btn-primary">Logout</button>
+            </form>
+          </div>          
+        <% } %>
+      </ul>      
     </div>
     <div class="nav__container">
 

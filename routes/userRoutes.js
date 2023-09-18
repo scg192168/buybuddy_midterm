@@ -38,13 +38,19 @@ router.get("/urls/buyer", (req, res) => {
 
 // Return the login page
 router.get("/login", (req, res) => {
-  res.render("login");
+  res.render('login');  
 });
 
 // Return the signup page
 router.get("/signup", (req, res) => {
   res.render("signup");
 });
+
+// Route to homepage
+router.get("/urls_home", (req, res) => {
+  res.render("urls_home");
+});
+
 
 
 // POST Routes ------------------------------------------------------------------------------------------------ POST Routes
@@ -71,7 +77,7 @@ router.post("/signup/buyer", (req, res) => {
       .addUser(user)
       .then((user) => {        
         req.session.userId = user.id;
-        res.redirect('/urls/buyer');
+        res.redirect('/users/urls/buyer');
       })
       .catch((e) => res.status(500).send("Error creating user"));
     })
@@ -158,7 +164,7 @@ router.post("/login/seller", (req, res) => {
 // Log a user out
 router.post("/logout", (req, res) => {
   req.session.userId = null;
-  res.send({});
+  res.redirect('/users/urls_home');
 });
 
 

@@ -10,7 +10,6 @@
     <link rel="stylesheet" href="/styles/main.css" />
   </head>
   <body>
-    <%- include('partials/_header') %>
     <div class="signup-container">
       <h1>Create Account</h1>
       <form action="/users/signup/buyer" method="POST" class="form-signup">
@@ -28,13 +27,15 @@
           </div>
 
           <div>
-            <input type="radio" id="seller" name="type" value="seller" />
+            <input type="radio" id="seller" name="role" value="seller" />
             <label for="seller">Seller</label>
           </div>
         </div>
 
-        <button type="submit" class="signup-btn btn btn-large">Sign Up</button>
+        <button type="submit" class="signup-btn btn btn-large">Sign Up</button>        
       </form>
+      <br>
+      <a href="/users/urls_home" class="signup-Tohome">Back</a>
     </div>
   </body>
 </html>

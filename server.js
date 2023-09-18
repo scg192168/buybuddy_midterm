@@ -67,9 +67,14 @@ app.use('/styles',
 const productRoutes = require("./routes/productRoutes");
 const userRoutes = require("./routes/userRoutes");
 
-// Route to render the homepage
-app.get('/', (req, res) => {
-  res.render('index');
+// Route to redirect to homepage
+app.get("/", (req, res) => {
+  res.redirect("/home");
+});
+
+// Route to homepage
+app.get("/home", (req, res) => {
+  res.render("urls_home");
 });
 
 // /products/endpoints
@@ -84,3 +89,4 @@ app.use("/users", userRoutes);
 app.listen(PORT, () => {
   console.log(`Example app listening on port ${PORT}`);
 });
+
