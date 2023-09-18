@@ -1,0 +1,22 @@
+.signup-container,
+.login-container {
+  max-width: 360px;
+  margin: 0 auto;
+  padding: 48px 0;
+}
+
+form.form-signup,
+form.form-login {
+  display: flex;
+  flex-direction: column;
+}
+
+form.form-signup input,
+form.form-login input {
+  margin-bottom: 8px;
+}
+
+button.signup-btn,
+button.login-btn {
+  margin-top: 24px;
+}
