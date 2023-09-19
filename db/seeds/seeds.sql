@@ -1,5 +1,6 @@
 -- Users table seeds here (Example)
 -- Insert sample data
+
 INSERT INTO users (username, email, password, role)
 VALUES
     ('user123', 'user123@example.com', 'hashed_password', 'buyer'),
