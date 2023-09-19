@@ -9,8 +9,7 @@ router.get("/", (req, res) => {
   productQueries
     .getAllProducts(req.query, 20)
     .then((products) => { //an array of products
-      res.send({products})
-      // res.render('urls_products_listing', { products })
+      res.render('urls_products_listing', { products })
     })
     .catch((e) => res.status(500).send("Error fetching products" ));    
 });

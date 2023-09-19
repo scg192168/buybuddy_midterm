@@ -7,8 +7,10 @@ VALUES
 
 INSERT INTO products (sellerId, title, description, price, category, images, status)
 VALUES
-    (2, 'Product 1', 'Description of Product 1', 25.99, 'Electronics', '["product1.jpg"]', 'active'),
-    (2, 'Product 2', 'Description of Product 2', 19.99, 'Clothing', '["product2.jpg"]', 'sold');
+    (2, 'BOSE 700 headphone', 'Description of Product 1', 150.99, 'Electronics', './images/headphone.png', 'active'),
+    (2, 'Von Duchon shades', 'Description of Product 2', 105.87, 'Clothing', './images/shades.png', 'active'),
+    (2, 'Ps5 Console & controler', 'Description of Product 3', 700.64, 'Games', './images/Ps5_game.png', 'active'),
+    (2, 'Air force 1', 'Description of Product 4', 200.99, 'Shoes', './images/shoes.png', 'active');
 
 INSERT INTO messages (senderId, receiverId, messageText, sendDate)
 VALUES
