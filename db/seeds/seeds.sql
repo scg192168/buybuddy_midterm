@@ -36,13 +36,13 @@ VALUES
   (1, 2, 'Hi, I''m interested in your Product 1. Can you provide more details?', '2023-09-11T10:00:00Z'),
   (2, 1, 'Sure, here are the details...', '2023-09-11T10:30:00Z');
   (3, 1, 'Is the item still available?', '2023-09-16 14:20:00'),
-  (1, 3, 'Yes, it's still available. Would you like to meet in person?', '2023-09-16 14:30:00'),
+  (1, 3, 'Yes, it is still available. Would you like to meet in person?', '2023-09-16 14:30:00'),
   (2, 3, 'I have a few questions about the product specifications.', '2023-09-17 09:45:00'),
-  (3, 2, 'Feel free to ask. I'm here to help!', '2023-09-17 10:00:00'),
+  (3, 2, 'Feel free to ask. I amm here to help!', '2023-09-17 10:00:00'),
   (4, 1, 'Can you provide more details about the product condition?', '2023-09-18 18:15:00'),
-  (1, 4, 'Of course! It's in excellent condition, barely used.', '2023-09-18 18:30:00'),
-  (5, 2, 'I'd like to negotiate the price. Would you consider $X?', '2023-09-19 12:00:00'),
-  (2, 5, 'I appreciate your offer. Let's discuss it further.', '2023-09-19 12:15:00');
+  (1, 4, 'Of course! It is in excellent condition, barely used.', '2023-09-18 18:30:00'),
+  (5, 2, 'I would like to negotiate the price. Would you consider $X?', '2023-09-19 12:00:00'),
+  (2, 5, 'I appreciate your offer. Lets discuss it further.', '2023-09-19 12:15:00');
   (6, 2, 'Can we meet tomorrow to finalize the deal?', '2023-09-23 09:00:00'),
-  (2, 6, 'Tomorrow works for me. Let's meet at the mall.', '2023-09-23 09:15:00'),
+  (2, 6, 'Tomorrow works for me. Lets meet at the mall.', '2023-09-23 09:15:00'),
 
