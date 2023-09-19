@@ -18,18 +18,18 @@ VALUES
 
 INSERT INTO products (sellerId, title, description, price, category, images, status)
 VALUES
-  (1, 'Product A', 'Description for Product A', 99.99, 'Electronics', '{"image1.jpg", "image2.jpg"}', 'Active'),
-  (2, 'Product B', 'Description for Product B', 49.95, 'Clothing', '{"image3.jpg"}', 'Active'),
-  (3, 'Product C', 'Description for Product C', 299.00, 'Home & Garden', '{"image4.jpg", "image5.jpg"}', 'Active'),
-  (4, 'Product D', 'Description for Product D', 19.99, 'Electronics', '{"image6.jpg"}', 'Active'),
-  (5, 'Product E', 'Description for Product E', 199.99, 'Electronics', '{"image7.jpg", "image8.jpg"}', 'Inactive'),
-  (6, 'Product F', 'Description for Product F', 79.95, 'Clothing', '{"image9.jpg"}', 'Active'),
-  (7, 'Product G', 'Description for Product G', 129.00, 'Home & Garden', '{"image10.jpg", "image11.jpg"}', 'Active'),
-  (8, 'Product H', 'Description for Product H', 9.99, 'Electronics', '{"image12.jpg"}', 'Active'),
-  (9, 'Product I', 'Description for Product I', 149.99, 'Electronics', '{"image13.jpg", "image14.jpg"}', 'Active'),
-  (10, 'Product J', 'Description for Product J', 69.95, 'Clothing', '{"image15.jpg"}', 'Active');
-  (11, 'Product K', 'Description of Product K', 25.99, 'Electronics', '{"product1.jpg"}', 'active'),
-  (12, 'Product L', 'Description of Product L', 19.99, 'Clothing', '{"product2.jpg"}', 'inactive');
+  (1, 'wireless earphone', 'TAGRY Bluetooth Headphones 60H Playback True Wireless Earbuds LED Power Display Earphones with Wireless Charging Case IPX5 Waterproof in-Ear Earbuds with Mic for TV Smart Phone Laptop Sports', 99.99, 'Electronics', '{https://www.pexels.com/photo/wireless-earphones-8534088/", "image2.jpg"}', 'Active'),
+  (2, 'sport wear', 'blank-black-male-hoodie-sweatshirt-long-sleeve', 49.95, 'Clothing', '{"https://www.vecteezy.com/photo/22862363-blank-black-male-hoodie-sweatshirt-long-sleeve-with-clipping-path-illustration-ai-generative"}', 'Active'),
+  (3, 'Men Shoes', 'Alipasinm Men Dress Shoes Oxford Formal Modern Leather Shoes for Men', 299.00, 'shoes', '{"https://m.media-amazon.com/images/I/815u1-v4i8L._AC_UY695_.jpg"}', 'Active'),
+  (4, 'Bluetooth Headset Wireless Headset', 'Trucker Bluetooth Headset Wireless Headset with Mic Over The Head Headset with Noise Cancelling Sound On Ear Car Earphones Office Earpiece for Cell Phone Bluetooth V2.1 Compatible for iOS & Android', 39.99, 'Electronics', '{"https://www.vecteezy.com/photo/9809276-bluetooth-headphones-on-black-leather-background"}', 'Active'),
+  (5, 'MacBook pro 14-inch', 'Apple 2021 MacBook Pro (14-inch, Apple M1 Pro chip with 8‑core CPU and 14‑core GPU, 16GB RAM, 512GB SSD) - Space Grey - English', 2549.99, 'Electronics', '{"https://www.vecteezy.com/photo/13097383-mackbook-pro-screen-with-website-presentation-mockup", "image8.jpg"}', 'Inactive'),
+  (6, 'Madame Ivory Floral Round Neck Dress', 'The Madame Ivory Floral Round Neck Dress is perfect for any summer event. Crafted from lightweight, breathable fabrics, it features an all-over floral print and a flattering round neckline', 79.95, 'Clothing', '{"https://www.glamly.com/products/m3w13026-ivory?variant=44208925573349"}', 'Active'),
+  (7, 'Men Suit', 'WEEN CHARM Mens Two Button Notch Lapel Slim Fit 3 Piece Suit Blazer Jacket Tux Vest', 129.00, 'Clothing', '{"https://m.media-amazon.com/images/I/61ZiKB7E+YL._AC_UX679_.jpg"}', 'Active'),
+  (8, 'iPhone 14', 'Apple iPhone 14 Silicone Case with MagSafe', 9.99, 'Electronics', '{"https://upload.wikimedia.org/wikipedia/commons/6/61/IPhone_14_vector.svg"}', 'Active'),
+  (9, 'smart watch', 'Smart Watch, Bluetooth Call Smartwatch for Men and Women,Monitoring Heart Rate/Sleep/Blood Oxygen/Pedometer,1.85-inch Fitness Tracker with Multiple Sports Modes,Smartwatches Fit for iOS and Android', 49.99, 'Electronics', '{"https://upload.wikimedia.org/wikipedia/commons/e/ef/Smartwatches.jpeg", "image14.jpg"}', 'Active'),
+  (10, 'Winter Boots For women', 'The Drop Women Sia Pointed Toe Western Ankle Boot Ankle Boot', 69.95, 'Shoes', '{"https://m.media-amazon.com/images/I/818by37QKwL._AC_UY695_.jpg"}', 'Active');
+  (11, 'LG monitor', 'LG Electronics 24BK430H-B 24-Inch Screen LCD Monitor,Black', 245.99, 'Electronics', '{"https://upload.wikimedia.org/wikipedia/commons/6/63/Monitor_LG_LED_IPS_23%27_1080p.jpg"}', 'active'),
+  (12, 'Kids Hoodie Sweatshirt', 'https://m.media-amazon.com/images/I/61mI1Q3zRDL._AC_UX679_.jpg"}', 'inactive');
 
 INSERT INTO messages (senderId, receiverId, messageText, sendDate)
 VALUES
