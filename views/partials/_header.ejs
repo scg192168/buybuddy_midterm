@@ -1,7 +1,7 @@
 <header>
   <nav class="nav">
     <div class="nav__top">
-      <% if (!id) {%>
+      <% if (!user.id) {%>
       <ul class="nav__top--left">
         <li><a href="/users/login">Login</a></li>
         <li><a href="/users/signup">Sign Up</a></li>
@@ -9,7 +9,7 @@
         <% } else {%>
           <div class="nav__top---left">
             <form class="form-logout text-center" method="POST" action ="/users/logout">
-              <span class="form-inline" style="margin: 10px"> Logged In As: <strong><%= email %></strong> </span>
+              <span class="form-inline" style="margin: 10px"> Logged In As: <strong><%= user.email %></strong> </span>
               <button type="submit" class="logout-btn btn-primary">Logout</button>
             </form>
           </div>          
@@ -17,7 +17,6 @@
       </ul>      
     </div>
     <div class="nav__container">
-
       <div class="nav-logo">
         <a href="/"><img src="/images/buybuddy-logo.png"></a>
       </div>
@@ -45,8 +44,7 @@
             </select>
           </li>
         </ul>
-      </div>
-      
+      </div>      
     </div>
   </nav>
 </header>
