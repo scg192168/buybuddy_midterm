@@ -29,7 +29,7 @@ VALUES
   (9, 'smart watch', 'Smart Watch, Bluetooth Call Smartwatch for Men and Women,Monitoring Heart Rate/Sleep/Blood Oxygen/Pedometer,1.85-inch Fitness Tracker with Multiple Sports Modes,Smartwatches Fit for iOS and Android', 49.99, 'Electronics', '{"https://upload.wikimedia.org/wikipedia/commons/e/ef/Smartwatches.jpeg", "image14.jpg"}', 'Active'),
   (10, 'Winter Boots For women', 'The Drop Women Sia Pointed Toe Western Ankle Boot Ankle Boot', 69.95, 'Shoes', '{"https://m.media-amazon.com/images/I/818by37QKwL._AC_UY695_.jpg"}', 'Active');
   (11, 'LG monitor', 'LG Electronics 24BK430H-B 24-Inch Screen LCD Monitor,Black', 245.99, 'Electronics', '{"https://upload.wikimedia.org/wikipedia/commons/6/63/Monitor_LG_LED_IPS_23%27_1080p.jpg"}', 'active'),
-  (12, 'Kids Hoodie Sweatshirt', 'https://m.media-amazon.com/images/I/61mI1Q3zRDL._AC_UX679_.jpg"}', 'inactive');
+  (12, 'Kids Hoodie Sweatshirt', 'Loodgao Kids Boys Tracksuit Sweatsuit Zip Up Hoodie Sweatshirt Tops with Jogger Sweatpants Fall Winter Clothes Set', 69.40,'https://m.media-amazon.com/images/I/61mI1Q3zRDL._AC_UX679_.jpg"}', 'inactive');
 
 INSERT INTO messages (senderId, receiverId, messageText, sendDate)
 VALUES
