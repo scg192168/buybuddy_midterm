@@ -22,15 +22,12 @@ router.get("/urls/buyer", (req, res) => {
   userQueries
     .getUserWithId(idFromCookie)
     .then((user) => {
-
       const returnedUser = {
         usernname: user.username,
         email: user.email,
         role: user.role,
         id: user.id,
       };
-      console.log(returnedUser);
-      // res.redirect('/');
       res.render("urls_buyer_index", returnedUser);
     })
     .catch((e) => res.status(500).send("No user with that id" ));

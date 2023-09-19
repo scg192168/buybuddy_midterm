@@ -8,7 +8,7 @@ const db = require('../connection');
  * @param {*} limit The number of results to return.
  * @return {Promise<[{}]>}  A promise to the products.
  */
-const getAllproducts = (options, limit) => {
+const getAllProducts = function (options, limit) {
   const queryParams = [];
   let queryString = `
     SELECT products.*
@@ -68,7 +68,7 @@ const getAllproducts = (options, limit) => {
   return db
     .query(queryString, queryParams)
     .then((result) => {
-      console.log(result.rows);
+      // console.log(result.rows);
       return Promise.resolve(result.rows)
     }) // Return the rows
     .catch((err) => {
@@ -236,7 +236,7 @@ const markProductsAsSold = function (productId, sellerId) {
 }
 
 module.exports = {
-  getAllproducts,
+  getAllProducts,
   addProductToDatabase,
   getProductWithTitle,
   getProductWithId,
