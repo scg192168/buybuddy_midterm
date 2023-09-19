@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>BuyBuddy</title>
+    <link rel="stylesheet" href="/styles/reset.css" />
+    <link rel="stylesheet" href="/styles/main.css" />
+    <link rel="stylesheet" href="/styles/_header.css" />
+    <link rel="stylesheet" href="/styles/signup.css" />
+  </head>
+  <body>
+    <%- include('partials/_header') %>
+    <div class="login-container">
+      <h1>Login</h1>
+      <form action="/login" method="POST" class="form-login">
+        <label for="email">Email</label>
+        <input
+          class="form-control"
+          type="email"
+          name="email"
+          placeholder="Email Address"
+          required
+        />
+        <label for="password">Password </label>
+        <input
+          class="form-control"
+          type="password"
+          name="password"
+          placeholder="password"
+          required
+        />
+
+        <button type="submit" class="login-btn btn btn-large">Login</button>
+      </form>
+    </div>
+  </body>
+</html>

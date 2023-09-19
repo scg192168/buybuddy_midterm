@@ -1,9 +1,9 @@
 const db = require("../connection");
 
-const getUsers = () => {
+const getProducts = () => {
   return db.query("SELECT * FROM products;").then((data) => {
     return data.rows;
   });
 };
 
-module.exports = { getUsers };
+module.exports = { getProducts };
