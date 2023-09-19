@@ -83,9 +83,7 @@ app.use("/products", productRoutes);
 // /user/endpoints
 app.use("/users", userRoutes);
 
-// /api/endpoints
-// app.use("/api", apiRoutes);
-
+// Listening
 app.listen(PORT, () => {
   console.log(`Example app listening on port ${PORT}`);
 });
