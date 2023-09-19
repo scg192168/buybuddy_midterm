@@ -18,6 +18,7 @@ router.get("/urls/buyer", (req, res) => {
   if (!idFromCookie) { // return a relevant error message if id does not exist
     return res.status(403).send("😒😒😒😒You are not Logged in!!! Log in to use the TinyApp....");
   }
+  
 
   userQueries
     .getUserWithId(idFromCookie)

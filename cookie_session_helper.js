@@ -9,6 +9,7 @@ const generateRandomString = function (length) {
   return result;
 };
 
+
 module.exports = {
   generateRandomString
 };

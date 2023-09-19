@@ -9,6 +9,7 @@ const getUserWithEmail = function(email) {
       // Initialize resolvedUser as null
       let resolvedUser = null;
       
+      
       // Check if any rows were returned
       if (result.rows.length > 0) {
         const user = result.rows[0];

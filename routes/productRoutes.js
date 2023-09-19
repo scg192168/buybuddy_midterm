@@ -14,6 +14,7 @@ router.get("/", (req, res) => {
     .catch((e) => res.status(500).send("Error fetching products" ));    
 });
 
+
 // Search for a product based on the parameters provided
 
 // Get a single product
