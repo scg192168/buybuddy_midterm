@@ -8,7 +8,7 @@ const db = require('../connection');
  * @param {*} limit The number of results to return.
  * @return {Promise<[{}]>}  A promise to the products.
  */
-const getAllproducts = (options, limit) => {
+const getAllProducts = (options, limit) => {
   const queryParams = [];
   let queryString = `
     SELECT products.*
@@ -233,10 +233,10 @@ const markProductsAsSold = function (productId, sellerId) {
       console.error('Error inserting product:', err.message);
       throw err; // Rethrow the error to be handled elsewhere
     });
-}
+};
 
 module.exports = {
-  getAllproducts,
+  getAllProducts,
   addProductToDatabase,
   getProductWithTitle,
   getProductWithId,

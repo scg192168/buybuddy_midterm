@@ -35,3 +35,10 @@ CREATE TABLE messages (
     FOREIGN KEY (senderId) REFERENCES users(id),
     FOREIGN KEY (receiverId) REFERENCES users(id)
 );
+DROP TABLE IF EXISTS wishlists CASCADE
+CREATE TABLE wishlists (
+    id serial PRIMARY KEY,
+    created_at TIMESTAMPTZ,
+    FOREIGN KEY (userId) REFERENCES users(id),
+    FOREIGN KEY (productId) REFERENCES product(id)
+);

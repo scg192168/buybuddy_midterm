@@ -30,24 +30,21 @@ app.use(express.static("public"));
 
 // Separated Routes for each Resource
 // Note: Feel free to replace the example routes below with your own
-const userApiRoutes = require("./routes/users-api");
-const widgetApiRoutes = require("./routes/widgets-api");
-const usersRoutes = require("./routes/users");
-
-// Mount all resource routes
-// Note: Feel free to replace the example routes below with your own
-// Note: Endpoints that return data (eg. JSON) usually start with `/api`
-app.use("/api/users", userApiRoutes);
-app.use("/api/widgets", widgetApiRoutes);
-app.use("/users", usersRoutes);
-// Note: mount other resources here, using the same pattern above
-
-// Home page
-// Warning: avoid creating more routes in this file!
-// Separate them into separate routes files (see above).
-
+// const userApiRoutes = require("./routes/users-api");
+// const widgetApiRoutes = require("./routes/widgets-api");
+// const usersRoutes = require("./routes/users");
+const productRoutes = require("./routes/productRoutes");
+const userRoutes = require("./routes/userRoutes");
+const userWishlist = require("./routes/userWishlist");
+const messagesRoute = require("./routes/messagesRoute");
+// Route to redirect to homepage
 app.get("/", (req, res) => {
-  res.render("index");
+  res.redirect("/home");
+});
+
+// Route to homepage
+app.get("/home", (req, res) => {
+  res.render("urls_home");
 });
 
 // /products/endpoints
@@ -55,6 +52,32 @@ app.use("/products", productRoutes);
 
 // /user/endpoints
 app.use("/users", userRoutes);
+app.use("/messages",messagesRoute);
+app.use("/wishlist", userWishlist);
+
+//app.use("/wishlist", userWishlist);
+
+// Mount all resource routes
+// Note: Feel free to replace the example routes below with your own
+// Note: Endpoints that return data (eg. JSON) usually start with `/api`
+// app.use("/api/users", userApiRoutes);
+// app.use("/api/widgets", widgetApiRoutes);
+// app.use("/users", usersRoutes);
+// Note: mount other resources here, using the same pattern above
+
+// Home page
+// Warning: avoid creating more routes in this file!
+// Separate them into separate routes files (see above).
+
+// app.get("/", (req, res) => {
+//   res.render("index");
+// });
+
+// /products/endpoints
+// app.use("/products", productRoutes);
+
+// // /user/endpoints
+// app.use("/users", userRoutes);
 
 // /api/endpoints
 // app.use("/api", apiRoutes);

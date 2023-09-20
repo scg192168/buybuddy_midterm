@@ -3,9 +3,17 @@
  */
 
 const express = require('express');
-const router  = express.Router();
+const router = express.Router();
 const messagesQueries = require('../db/queries/messages');
 
+
+router.get('/messages', (req, res) => {
+  
+  const user = [{ username: user.username }, { username: user.username }];
+  const message = [{ sender: 'User1', text: 'Hello' }, { sender: 'User2', text: 'Hi there' }];
+
+  res.render('message', { user, message });
+});
 
 // ------------------------------------------------------------------------------------------------ GET Routes
 
