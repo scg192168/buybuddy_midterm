@@ -1,0 +1,44 @@
+.nav {
+  display: flex;
+}
+
+.nav__top {
+  display: block;
+  position: absolute;
+  right: 5%;
+  top: 8px;
+}
+
+.nav__top--left {
+  display: flex;
+}
+
+.nav li {
+  margin-right: 14px;
+}
+
+.nav__filter {
+  display: flex;
+  justify-content: end;
+  padding-top: 12px;
+}
+
+.nav__container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: 48px 5%;
+}
+
+nav img {
+  max-width: 200px;
+  width: 100%;
+  min-width: 160px;
+  padding-right: 16px;
+  margin-bottom: 0px;
+}
+
+nav input {
+  min-width: 400px;
+}
