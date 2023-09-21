@@ -40,3 +40,8 @@ button {
   border-radius: 2px;
   cursor: pointer;
 }
+
+button, input, select, textarea {
+  font:inherit;
+  margin:0;
+}
