@@ -20,4 +20,8 @@ router.get("/signup", (req, res) => {
   res.render("signup");
 });
 
+router.get("/messages", (req, res) => {
+  res.render("messages");
+});
+
 module.exports = router;
