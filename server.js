@@ -83,6 +83,11 @@ app.use("/users", userRoutes);
 // /api/endpoints
 // app.use("/api", apiRoutes);
 
+// Import and use the messageRoutes
+const messageRoutes = require('./routes/messageRoutes');
+app.use('/messages', messageRoutes);
+
+
 app.listen(PORT, () => {
   console.log(`Example app listening on port ${PORT}`);
 });

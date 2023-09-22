@@ -1,0 +1,19 @@
+<!-- messages.ejs -->
+
+<h1>Messages</h1>
+
+<ul>
+  <% messages.forEach((message) => { %>
+    <li>
+      <strong><%= message.senderName %>:</strong> <%= message.messageText %>
+    </li>
+  <% }); %>
+</ul>
+
+<!-- Add a form to send a new message -->
+<form action="/send-message" method="post">
+  <input type="hidden" name="senderId" value="<%= currentUser.id %>">
+  <input type="hidden" name="receiverId" value="<%= receiverId %>">
+  <textarea name="messageText" placeholder="Type your message"></textarea>
+  <button type="submit">Send</button>
+</form>
