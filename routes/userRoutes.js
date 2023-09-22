@@ -7,32 +7,50 @@ const router  = express.Router();
 const bcrypt = require("bcrypt");
 const userQueries = require('../db/queries/users');
 const userSearchHelper = require('../userSearchHelper'); // Import the getUserWithEmail function
+const productQueries = require('../db/queries/products');
 
 
 // GET Routes ------------------------------------------------------------------------------------------------ GET Routes
 
 // Return information about the current user (based on cookie value)
-router.get("/urls/buyer", (req, res) => {
+router.get("/login/buyer", (req, res) => {
   const idFromCookie = req.session.userId;
 
-  if (!idFromCookie) { // return a relevant error message if id does not exist
-    return res.status(403).send("😒😒😒😒You are not Logged in!!! Log in to use the TinyApp....");
+  if (!idFromCookie) {
+    return res.status(403).send("😒😒😒😒You are not logged in!!! Log in to use the BuyBuddy....");
   }
-  
 
-  userQueries
-    .getUserWithId(idFromCookie)
+  // Fetch user data and products data using Promises with .then()
+  let userData;
+
+  userQueries.getUserWithId(idFromCookie)
     .then((user) => {
-      const returnedUser = {
-        usernname: user.username,
+      if (!user) {
+        return res.status(404).send("No user with that ID");
+      }
+
+      userData = {
+        username: user.username,
         email: user.email,
         role: user.role,
         id: user.id,
       };
-      res.render("urls_buyer_index", returnedUser);
+
+      return productQueries.getAllProducts(req.query, 20);
     })
-    .catch((e) => res.status(500).send("No user with that id" ));
+    .then((products) => {
+      // Now you have both userData and products data
+      const data = { user: userData, products: products };
+      res.render("urls_buyer_index", data);
+      res.json(data);
+    })
+    .catch((error) => {
+      console.error(error);
+      res.status(500).send("Error fetching data");
+    });
 });
+
+
 
 // Return the login page
 router.get("/login", (req, res) => {
@@ -130,7 +148,7 @@ router.post("/login/buyer", (req, res) => {
       }
 
       req.session.userId = userFound.id;
-      res.redirect('/users/urls/buyer');
+      res.redirect('/users/login/buyer');
     });
 });
 
@@ -162,7 +180,7 @@ router.post("/login/seller", (req, res) => {
 // Log a user out
 router.post("/logout", (req, res) => {
   req.session.userId = null;
-  res.redirect('/users/urls_home');
+  res.redirect('/');
 });
 
 

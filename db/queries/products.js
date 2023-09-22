@@ -59,7 +59,6 @@ const getAllProducts = function (options, limit) {
 
   // Add grouping, ordering, and limit
   queryString += `
-    ORDER BY price
     LIMIT $${queryParams.length};
   `;
 
