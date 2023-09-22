@@ -1,5 +1,4 @@
 -- Drop and recreate Users table (Example)
-
 DROP TABLE IF EXISTS users CASCADE;
 CREATE TABLE users (
     id serial PRIMARY KEY,
@@ -20,7 +19,7 @@ CREATE TABLE products (
     description TEXT,
     price NUMERIC(10, 2),
     category VARCHAR(255),
-    images JSONB DEFAULT NULL,
+    images TEXT DEFAULT NULL,
     status VARCHAR(50) NOT NULL,
     FOREIGN KEY (sellerId) REFERENCES users(id)
 );

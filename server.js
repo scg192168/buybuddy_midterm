@@ -28,6 +28,22 @@ app.use(
   })
 );
 
+// Set up cookie-session API
+const sessionession = require('cookie-session');
+//Use a cookie session to fetch and encrypt session
+const key1 = cookie_session_helper.generateRandomString(32);
+const key2 = cookie_session_helper.generateRandomString(32);
+
+app.use(
+  sessionession({
+    name: "session",
+    keys: [key1, key2], //Secret keys to protect session
+
+    // Cookie Options
+    maxAge: 24 * 60 * 60 * 1000, // Session duration in milliseconds (e.g., 24 hours)
+  })
+);
+
 // Load the logger first so all (static) HTTP requests are logged to STDOUT
 // 'dev' = Concise output colored by response status for development use.
 //         The :status token will be colored red for server error codes, yellow for client error codes, cyan for redirection codes, and uncolored for all other codes.
@@ -36,6 +52,8 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.static("public"));
 app.use(
   "/styles",
+app.use(express.static('public'));
+app.use('/styles',
   sassMiddleware({
     source: __dirname + "/styles",
     destination: __dirname + "/public/styles",
@@ -68,3 +86,4 @@ app.use("/users", userRoutes);
 app.listen(PORT, () => {
   console.log(`Example app listening on port ${PORT}`);
 });
+

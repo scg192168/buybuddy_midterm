@@ -9,12 +9,21 @@ router.get("/", (req, res) => {
   productQueries
     .getAllProducts(req.query, 20)
     .then((products) => { //an array of products
+<<<<<<< HEAD
       res.send({products})
       // res.render('urls_products_listing', { products })
     })
     .catch((e) => res.status(500).send("Error fetching products" ));
 });
 
+=======
+      res.render('urls_products_listing', { products })
+    })
+    .catch((e) => res.status(500).send("Error fetching products" ));
+});
+
+
+>>>>>>> eustace
 // Search for a product based on the parameters provided
 
 // Get a single product
