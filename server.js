@@ -47,15 +47,23 @@ app.use('/styles',
 const productRoutes = require("./routes/productRoutes");
 const userRoutes = require("./routes/userRoutes");
 const home_pageRoutes = require("./routes/home_pageRoutes");
-
-// /homepage/endpoints
-app.use("/", home_pageRoutes);
+const userWishlist = require("./routes/userWishlist");
+const messagesRoutes = require("./routes/messages");
 
 // /products/endpoints
 app.use("/products", productRoutes);
 
 // /user/endpoints
 app.use("/users", userRoutes);
+
+// /wishlist/endpoints
+app.use("/wishlist", userWishlist);
+
+// /messages/endpoints
+app.use("/messages", messagesRoutes);
+
+// /homepage/endpoints
+app.use("/", home_pageRoutes);
 
 // Listening
 app.listen(PORT, () => {

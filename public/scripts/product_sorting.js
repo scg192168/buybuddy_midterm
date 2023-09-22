@@ -8,7 +8,7 @@ $(document).ready(() => {
     // Send an AJAX GET request to "/users/login/buyer"
     $.ajax({
       method: 'GET',
-      url: '/users/login/buyer',
+      url: '/wishlist',
     })
   });
 });
