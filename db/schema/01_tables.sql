@@ -39,6 +39,8 @@ DROP TABLE IF EXISTS wishlists CASCADE
 CREATE TABLE wishlists (
     id serial PRIMARY KEY,
     created_at TIMESTAMPTZ,
+    userId INT NOT NULL,
+    productId INT NOT NULL,
     FOREIGN KEY (userId) REFERENCES users(id),
-    FOREIGN KEY (productId) REFERENCES product(id)
+    FOREIGN KEY (productId) REFERENCES products(id)
 );

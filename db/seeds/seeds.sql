@@ -3,7 +3,7 @@
 INSERT INTO users (username, email, password, role, wishlist, messages, profile)
 VALUES
   ('user123', 'user123@example.com', 'hashed_password', 'buyer', '{}', '{}', '{"name": "John Doe"}'),
-  ('seller456', 'seller456@example.com', 'hashed_password', 'seller', '{}', '{}', '{"name": "Alice Smith"}');
+  ('seller456', 'seller456@example.com', 'hashed_password', 'seller', '{}', '{}', '{"name": "Alice Smith"}'),
   ('john_doe', 'john.doe@example.com', 'hashed_password_1', 'seller', '{"item1": "Product A", "item2": "Product B"}', '{"from": "seller", "message": "Interested in your item."}', '{"name": "John Doe", "bio": "A passionate buyer."}'),
   ('jane_smith', 'jane.smith@example.com', 'hashed_password_2', 'buyer', '{"item1": "Product C", "item2": "Product D"}', '{"from": "buyer", "message": "Is this item available?"}', '{"name": "Jane Smith", "bio": "Loves shopping."}'),
   ('admin_user', 'admin@example.com', 'hashed_password_admin', 'buyer', '{}', '{}', '{"name": "bob martin", "bio": "enjoy shopping"}'),
@@ -27,14 +27,14 @@ VALUES
   (7, 'Men Suit', 'WEEN CHARM Mens Two Button Notch Lapel Slim Fit 3 Piece Suit Blazer Jacket Tux Vest', 129.00, 'Clothing', '{"https://m.media-amazon.com/images/I/61ZiKB7E+YL._AC_UX679_.jpg"}', 'Active'),
   (8, 'iPhone 14', 'Apple iPhone 14 Silicone Case with MagSafe', 9.99, 'Electronics', '{"https://upload.wikimedia.org/wikipedia/commons/6/61/IPhone_14_vector.svg"}', 'Active'),
   (9, 'smart watch', 'Smart Watch, Bluetooth Call Smartwatch for Men and Women,Monitoring Heart Rate/Sleep/Blood Oxygen/Pedometer,1.85-inch Fitness Tracker with Multiple Sports Modes,Smartwatches Fit for iOS and Android', 49.99, 'Electronics', '{"https://upload.wikimedia.org/wikipedia/commons/e/ef/Smartwatches.jpeg", "image14.jpg"}', 'Active'),
-  (10, 'Winter Boots For women', 'The Drop Women Sia Pointed Toe Western Ankle Boot Ankle Boot', 69.95, 'Shoes', '{"https://m.media-amazon.com/images/I/818by37QKwL._AC_UY695_.jpg"}', 'Active');
+  (10, 'Winter Boots For women', 'The Drop Women Sia Pointed Toe Western Ankle Boot Ankle Boot', 69.95, 'Shoes', '{"https://m.media-amazon.com/images/I/818by37QKwL._AC_UY695_.jpg"}', 'Active'),
   (11, 'LG monitor', 'LG Electronics 24BK430H-B 24-Inch Screen LCD Monitor,Black', 245.99, 'Electronics', '{"https://upload.wikimedia.org/wikipedia/commons/6/63/Monitor_LG_LED_IPS_23%27_1080p.jpg"}', 'active'),
   (12, 'Kids Hoodie Sweatshirt', 'Loodgao Kids Boys Tracksuit Sweatsuit Zip Up Hoodie Sweatshirt Tops with Jogger Sweatpants Fall Winter Clothes Set', 69.40,'https://m.media-amazon.com/images/I/61mI1Q3zRDL._AC_UX679_.jpg"}', 'inactive');
 
 INSERT INTO messages (senderId, receiverId, messageText, sendDate)
 VALUES
   (1, 2, 'Hi, I''m interested in your Product 1. Can you provide more details?', '2023-09-11T10:00:00Z'),
-  (2, 1, 'Sure, here are the details...', '2023-09-11T10:30:00Z');
+  (2, 1, 'Sure, here are the details...', '2023-09-11T10:30:00Z'),
   (3, 1, 'Is the item still available?', '2023-09-16 14:20:00'),
   (1, 3, 'Yes, it is still available. Would you like to meet in person?', '2023-09-16 14:30:00'),
   (2, 3, 'I have a few questions about the product specifications.', '2023-09-17 09:45:00'),
@@ -42,14 +42,15 @@ VALUES
   (4, 1, 'Can you provide more details about the product condition?', '2023-09-18 18:15:00'),
   (1, 4, 'Of course! It is in excellent condition, barely used.', '2023-09-18 18:30:00'),
   (5, 2, 'I would like to negotiate the price. Would you consider $X?', '2023-09-19 12:00:00'),
-  (2, 5, 'I appreciate your offer. Lets discuss it further.', '2023-09-19 12:15:00');
+  (2, 5, 'I appreciate your offer. Lets discuss it further.', '2023-09-19 12:15:00'),
   (6, 2, 'Can we meet tomorrow to finalize the deal?', '2023-09-23 09:00:00'),
   (2, 6, 'Tomorrow works for me. Lets meet at the mall.', '2023-09-23 09:15:00'),
 
-INSERT INTO wishlists (created_at, userId, productId) VALUES ('2023-09-01 10:00:00', 1, 5);
- ('2023-09-02 11:15:00', 2, 8),
- ('2023-09-03 14:30:00', 3, 12),
- ('2023-09-04 09:45:00', 4, 2),
+INSERT INTO wishlists (created_at, userId, productId) VALUES
+('2023-09-01 10:00:00', 1, 16),
+ ('2023-09-02 11:15:00', 2, 24),
+ ('2023-09-03 14:30:00', 3, 23),
+ ('2023-09-04 09:45:00', 4, 21),
  ('2023-09-05 16:20:00', 5, 9),
  ('2023-09-06 12:30:00', 1, 3),
  ('2023-09-07 17:10:00', 2, 7),
@@ -57,5 +58,5 @@ INSERT INTO wishlists (created_at, userId, productId) VALUES ('2023-09-01 10:00:
  ('2023-09-09 10:55:00', 4, 6),
  ('2023-09-10 08:40:00', 5, 10),
  ('2023-09-11 13:25:00', 1, 4),
- ('2023-09-12 15:50:00', 2, 1)
+ ('2023-09-12 15:50:00', 2, 1);
 

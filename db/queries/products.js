@@ -19,7 +19,7 @@ const getAllProducts = (options, limit) => {
   // Filter by title
   if (options.title) {
     queryParams.push(`%${options.title}%`);
-    queryString += `  WHERE price ILIKE $${queryParams.length} `;
+    queryString += `  WHERE price LIKE $${queryParams.length} `;
   }
 
   // Filter by seller
