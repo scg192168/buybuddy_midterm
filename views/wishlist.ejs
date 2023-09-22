@@ -27,7 +27,7 @@
 
   <body>
     <header>
-      <%- include('partials/_header2') %>
+      <%- include('partials/_header') %>
     </header>
 
     <div class="container" style="margin-left: 110px; margin-right: 110px;">
@@ -37,7 +37,7 @@
           <tbody>
             <tr style="width: auto;">
               <% wishlists.forEach((wishlist) => { %>
-                <td>
+                <td >
                   <section>
                     <img style="width: 250px; height: 250px;" src="<%= wishlist.product_images %>">
                     <h4><strong><%= wishlist.product_title %></strong></h4>
@@ -52,7 +52,6 @@
             </tr>
           </tbody>
         </table>
-
       </main>
     </div>
 
@@ -64,12 +63,6 @@
         })
           .then((response) => {
             if (response) {
-              // Item deleted successfully
-              //const deletedItem = document.getElementById(`wishlist-item-${itemId}`);
-              // if (deletedItem) {
-              //   deletedItem.remove();
-              // }
-              //fetch(`/wishlist`, {method: 'GET'})
               window.location.replace('/wishlist')
             } else {
               console.error('Error deleting wishlist item:', response.statusText);
@@ -84,7 +77,7 @@
       document.querySelectorAll('.form-delete').forEach(Elm => {
         Elm.addEventListener('submit', (event) => {
           event.preventDefault();
-console.log('test2',event.target);
+          console.log('test2',event.target);
           const itemId = event.currentTarget.getAttribute('data-item-id');
           console.log('test',itemId);
           deleteWishlistItem(itemId);

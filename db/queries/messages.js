@@ -1,3 +1,5 @@
+const db = require('../connection');
+
 /**
  * Get a single product from the database given their id.
  * @param {string} id The id of the product.
@@ -14,16 +16,15 @@ const getMessagesWithUserId = function(id) {
       ORDER BY send_date DESC;
     ` , [id])
     .then((result) => {
-      let resolvedMessages = null;
-      const messages = result.rows[0];
-      if (messages && messages.receiver_id === id) {
-        resolvedMessages = messages;
-      }
-      console.log(resolvedMessages);
-      return Promise.resolve(resolvedProduct);
+      const messages = result.rows;
+      return Promise.resolve(messages);
     })
     .catch((err) => {
       console.error('Error querying database:', err.message);
       throw err; // Rethrow the error to be handled elsewhere
     });
+};
+
+module.exports = {
+  getMessagesWithUserId
 };

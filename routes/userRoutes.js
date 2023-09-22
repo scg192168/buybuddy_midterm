@@ -41,8 +41,8 @@ router.get("/login/buyer", (req, res) => {
     .then((products) => {
       // Now you have both userData and products data
       const data = { user: userData, products: products };
-      res.render("urls_buyer_index", data);
-      res.json(data);
+      // res.json(data);
+      res.render("urls_buyer_index", data);      
     })
     .catch((error) => {
       console.error(error);

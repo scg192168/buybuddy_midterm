@@ -42,10 +42,11 @@
                   <a href="/products/details/<%= products[id].id %>"><h4><strong><%= products[id].title %></strong></h4></a>                  
                   <p><%= products[id].description %></p>
                   <h5><strong>$<%= products[id].price %></strong></h5>
-                  <section id="buy_tin">
-                    <form>
-                      <button type="submit" id="button" class="Buy-btn btn btn-large">Add to wishlist</button>
-                    </form>   
+                  <section id="add_tin">
+                    <form action="/wishlist/<%= products[id].id %>" method="POST">
+                      <input type="hidden" name="productId" value="<%= products[id].id %>">
+                      <button type="submit" class="add-btn btn btn-large">Add to wishlist</button>
+                    </form>  
                   </section>               
                 </section>
               </td> 
