@@ -26,7 +26,6 @@ const getUserWishlists = (userId) => {
     });
 };
 
-
 const getAllWishlists = () => {
   const queryString = `
   SELECT wishlists.id, wishlists.created_at, wishlists.userId, wishlists.productId,
@@ -73,7 +72,6 @@ const AddItemToUserWishlists = function (userId, productId) {
   return db
     .query(queryString, queryParams)
     .then((response) => {
-      console.log('Success :', response.rows);
       productAdded = response.rows;
       
       return Promise.resolve(productAdded);
@@ -84,9 +82,33 @@ const AddItemToUserWishlists = function (userId, productId) {
     });  
 };
 
+// Check if item already exist in wishlist table
+const checkProductInWishlist = function (userId, productId) {
+  const queryParams = [userId, productId];
+
+  const queryString = `SELECT productid FROM wishlists WHERE userId = $1 and productId = $2;`;
+  return db
+    .query(queryString, queryParams)
+    .then((response) => {
+      if (response.rows.length > 0) {
+        const productid = response.rows[0].productid;
+        console.log('Product already exists:', productid);
+        return Promise.resolve(productid);
+      } else {
+        console.log('Product does not exist in wishlist.');
+        return Promise.resolve(null);
+      }
+    })
+    .catch((err) => {
+      console.error('Error inserting product:', err.message);
+      throw err; // Rethrow the error to be handled elsewhere
+    }); 
+};
+
 module.exports = {
   DeleteItemFromWishlists,
   AddItemToUserWishlists,
   getUserWishlists,
+  checkProductInWishlist,
   getAllWishlists
 };

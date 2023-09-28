@@ -8,13 +8,13 @@ const morgan = require('morgan');
 const cookie_session_helper = require('./cookie_session_helper'); // Import the generateRandomString function
 
 
-const PORT = process.env.PORT || 8080;
 const app = express();
-
+const PORT = process.env.PORT || 8080;
 app.set('view engine', 'ejs');
 
 // Set up cookie-session API
 const sessionession = require('cookie-session');
+
 //Use a cookie session to fetch and encrypt session
 const key1 = cookie_session_helper.generateRandomString(32);
 const key2 = cookie_session_helper.generateRandomString(32);
@@ -25,7 +25,7 @@ app.use(
     keys: [key1, key2], //Secret keys to protect session
 
     // Cookie Options
-    maxAge: 24 * 60 * 60 * 1000, // Session duration in milliseconds (e.g., 24 hours)
+    maxAge: 7 * 24 * 60 * 60 * 1000, // Session duration in milliseconds (e.g., 24 hours)
   })
 );
 
