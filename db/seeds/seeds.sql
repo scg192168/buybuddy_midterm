@@ -1,28 +1,18 @@
 -- Users table seeds here (Example)
 -- Insert sample data
 
--- INSERT INTO users (username, email, password, role)
--- VALUES
---     ('user123', 'user123@example.com', 'hashed_password', 'buyer'),
---     ('seller456', 'seller456@example.com', 'hashed_password', 'seller');
-
--- INSERT INTO products (sellerId, title, description, price, category, images, status)
--- VALUES
---     (2, 'BOSE 700 headphone', 'Description of Product 1', 150.99, 'Electronics', './images/headphone.png', 'active'),
---     (2, 'Von Duchon shades', 'Description of Product 2', 105.87, 'Clothing', './images/shades.png', 'active'),
---     (2, 'Ps5 Console & controler', 'Description of Product 3', 700.64, 'Games', './images/Ps5_game.png', 'active'),
---     (2, 'Air force 1', 'Description of Product 4', 200.99, 'Shoes', './images/shoes.png', 'active');
-
--- INSERT INTO messages (senderId, receiverId, messageText, sendDate)
--- VALUES
---     (1, 2, 'Hi, I''m interested in your Product 1. Can you provide more details?', '2023-09-11T10:00:00Z'),
---     (2, 1, 'Sure, here are the details...', '2023-09-11T10:30:00Z');
+INSERT INTO messages (senderId, receiverId, messageText, sendDate)
+VALUES
+    (1, 2, 'Hi, I''m interested in your Product 1. Can you provide more details?', '2023-09-11T10:00:00Z'),
+    (2, 1, 'Sure, here are the details...', '2023-09-11T10:30:00Z');
 
 
 INSERT INTO products (sellerId, title, description, price, category, images, status, product_details)
 VALUES
-    (3, 'Summer Infant Infant 3Dmini Convenience Stroller', 'Blue/Black – Lightweight Infant Stroller with Compact Fold, Multi-Position Recline, Canopy with Pop Out Sun Visor and More – Umbrella Stroller for Travel and More', 77.63, 'Clothings', 'https://m.media-amazon.com/images/I/81eHajgaTFL._AC_SY355_.jpg', 'active', 'Lightweight (11 lbs.) design & compact fold. The dimensions (collapsed) are 44 x 10.5 x 10 inches (111.76 x 25.4 x 26.67 cm)
-Hassle-free canopy with pop out sun visor. Recommended for use with children ages 6 months + (or when baby can sit up on their own) up to 45 pounds. No weather protecting shield.Do not use bleach.');
-    -- (2, 'Von Duchon shades', 'Description of Product 2', 105.87, 'Clothing', './images/shades.png', 'active'),
-    -- (2, 'Ps5 Console & controler', 'Description of Product 3', 700.64, 'Games', './images/Ps5_game.png', 'active'),
-    -- (2, 'Air force 1', 'Description of Product 4', 200.99, 'Shoes', './images/shoes.png', 'active');
+    (3, 'Summer Infant Infant 3Dmini Convenience Stroller', 'Blue/Black - Lightweight Infant Stroller with Compact Fold, Multi-Position Recline, Canopy with Pop Out Sun Visor and More - Umbrella Stroller for Travel and More', 77.63, 'Clothings', 'https://m.media-amazon.com/images/I/81eHajgaTFL._AC_SY355_.jpg', 'active', 'Lightweight (11 lbs.) design & compact fold. The dimensions (collapsed) are 44 x 10.5 x 10 inches (111.76 x 25.4 x 26.67 cm) Hassle-free canopy with pop out sun visor. Recommended for use with children ages 6 months + (or when baby can sit up on their own) up to 45 pounds. No weather protecting shield.Do not use bleach.'),
+    (3, 'Louis Vuitton shades', 'The LV First Metal Cat Eye Sunglasses update a classic feminine frame shape with a contemporary design', 650.65, 'Clothing', 'https://us.louisvuitton.com/images/is/image/lv/1/PP_VP_L/louis-vuitton-lv-first-metal-cat-eye-sunglasses--Z1984U_PM2_Front%20view.jpg', 'active', 'The refinement of the ultra-light golden metal rims and end tips complements the round temples, lined with the House''s iconic Monogram canvas.'),
+    (2, 'Ps5 Console & controler', 'The PS5™ Digital Edition unleashes new gaming possibilities that you never anticipated with 825GB internal solid state drive (SSD)', 700.64, 'Games', 'https://premiowestburne.ca/wp-content/uploads/2020/10/Playstation_5_image.jpg', 'active', 'The PlayStation 5 Console is powered by a custom CPU and GPU with up to 825GB ultrafast SSD storage to supercharge your gaming experience. With HDR technology, it gives you clear, vivid, and buttery smooth visuals in 4K and 8K resolutions with 3D audio and haptic feedback to maximize immersive gameplay. This standard edition includes a disc drive for playing Blu-ray media.'),
+    (1, 'NIKE Air Force 1', 'The NIKE Air Force 1 shows a silhouette features with a white leather upper, contrasted by pink accents.', 350.87, 'Shoes', 'https://gomagcdn.ro/domains/escapesport.ro/files/product/medium/nike-air-force-1-an21-bg-ct3839-100-188819.jpg', 'active', 'Low-top paneled buffed leather sneakers in white · Perforated detailing at round toe · Logo patch at padded tongue · Padded collar. · Swoosh appliqués at sides · Mesh lining · Logo embossed at textured midsole · Treaded rubber outsole Note: this item may be shipped only within North America. Supplier color: White/White.'),
+    (2, 'Beats by Dr. Dre Studio3 Skyline', 'Enjoy a premium listening experience and complete wireless freedom with the Beats Studio3 over-ear headphones. Pure Adaptive Noise Canceling (Pure ANC) actively blocks unwanted external noise', 439.99, 'Electronics', 'https://multimedia.bbycastatic.ca/multimedia/products/500x500/131/13188/13188016.jpg', 'active', 'Pure Adaptive Noise Canceling (Pure ANC) actively blocks unwanted external noise, while real-time audio calibration preserves the clarity, range, and emotion in your favourite music..'),
+    (3, 'Fitbit Sense 2 Smartwatch with Heart Rate Monitor', 'Advanced health and activity tracking fitbit designed to suit your lifestyle', 399.99, 'Electronics', 'https://multimedia.bbycastatic.ca/multimedia/products/500x500/163/16390/16390437.jpg', 'active', 'Your fitness goals are well within reach with the help of the Fitbit Sense 2 smartwatch with heart rate monitor. This smarwatch is designed to help you keep tabs on key health metrics everyday—like heart rate, sleep profile, and stress management score—whether you''re working in the office or playing your favourite sport. It''s designed to help you stress less, sleep better, and live healthier.'),
+    (2, 'Cafele Backpack,Waterproof 17in Laptop Backpack', 'Large 17in Laptop Backpack for Trip School Work Bookbag Computer Rucksack with USB Charging Port,Water Resistant Sturdy Backpack for Men Women,Grey', 46.99, 'Clothings', ' https://m.media-amazon.com/images/I/91NxNroe6EL._AC_SX522_.jpg', 'active', 'This laptop backpack owns 20+ Independent pockets for large storage and organization for small items. 3 spacious main multi compartments with many hidden pockets can accommodate lots of stuffs like college supplies, travel accessories, clothes, stationery, notebook, Side deep ZIPPER POCKET for easy access essentials.');
